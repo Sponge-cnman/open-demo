@@ -16,4 +16,26 @@ mybatis-plus:
 
 server:
   port: 8888
-
+chaos:
+  monkey:
+    # 启动monkey
+    enabled: true
+    assaults:
+      # 确定多少请求被攻击，1为攻击所有请求；5：每5个请求攻击一次 五分之一概率
+      level: 5
+      # 增加最小延时，毫秒
+      latency-range-start: 1000
+      # 增加最大延时，毫秒
+      latency-range-end: 5000
+      # 延时攻击启动
+      latency-active: true
+      # 异常攻击启动
+      exceptions-active: true
+      # kill应用启动
+    #  kill-application-active: true
+    watcher: # 控制范围
+      controller: false
+      rest-controller: false
+      service: true
+      repository: false # （JDBC和JPA）
+      component: false
