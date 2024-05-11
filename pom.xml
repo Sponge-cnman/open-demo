@@ -21,28 +21,25 @@
 
     <dependencies>
 
+        <!-- https://mvnrepository.com/artifact/io.opentelemetry.instrumentation/opentelemetry-spring-boot-starter -->
+        <dependency>
+            <groupId>io.opentelemetry.instrumentation</groupId>
+            <artifactId>opentelemetry-spring-boot-starter</artifactId>
+            <version>1.22.1-alpha</version>
+        </dependency>
 
-            <!-- OpenTelemetry API -->
-            <dependency>
-                <groupId>io.opentelemetry</groupId>
-                <artifactId>opentelemetry-api</artifactId>
-                <version>1.2.0</version>
-            </dependency>
 
-            <!-- OpenTelemetry SDK -->
-            <dependency>
-                <groupId>io.opentelemetry</groupId>
-                <artifactId>opentelemetry-sdk</artifactId>
-                <version>1.2.0</version>
-            </dependency>
+
+
+
 
             <!-- OpenTelemetry Exporter - 选择适合你的需求的 Exporter -->
-            <!-- 例如，Jaeger Exporter -->
-        <dependency>
-            <groupId>io.opentelemetry</groupId>
-            <artifactId>opentelemetry-exporter-jaeger</artifactId>
-            <version>1.2.0</version>
-        </dependency>
+<!--            &lt;!&ndash; 例如，Jaeger Exporter &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.opentelemetry</groupId>-->
+<!--            <artifactId>opentelemetry-exporter-jaeger</artifactId>-->
+<!--            <version>1.2.0</version>-->
+<!--        </dependency>-->
 
 
         <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
