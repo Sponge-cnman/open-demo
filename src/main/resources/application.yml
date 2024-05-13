@@ -39,3 +39,18 @@ chaos:
       service: true
       repository: false # （JDBC和JPA）
       component: false
+#otel:
+#  # 导出器配置
+#  exporter:
+#    # 导出到Jaeger
+##    jaeger:
+##      enabled: false
+##      endpoint: http://10.170.xx.xxx:xxxx
+##      timeout: 10s
+#    # 导出到日志
+#    logging:
+#      enabled: true
+#  traces:
+#    sampler:
+#      # 采样频率
+#      probability: 1.0
