@@ -1,4 +1,4 @@
-package org.lx.pojo;
+package org.lx.pojo.phone;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

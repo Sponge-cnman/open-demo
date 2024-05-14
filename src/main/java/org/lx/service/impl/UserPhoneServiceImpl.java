@@ -4,10 +4,11 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.lx.common.CommonException;
 import org.lx.common.ResultCode;
-import org.lx.mapper.UserPhoneMapper;
-import org.lx.pojo.PhoneTake;
-import org.lx.pojo.UserPhone;
+import org.lx.mapper.phone.UserPhoneMapper;
+import org.lx.pojo.phone.PhoneTake;
+import org.lx.pojo.phone.UserPhone;
 import org.lx.service.UserPhoneService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.regex.Pattern;
@@ -19,6 +20,9 @@ import java.util.regex.Pattern;
  */
 @Service
 public class UserPhoneServiceImpl extends ServiceImpl<UserPhoneMapper,UserPhone> implements UserPhoneService {
+
+    @Autowired
+    private UserPhoneMapper userPhoneMapper;
 
     @Override
     public void insertPhone(PhoneTake phoneTake) throws CommonException {
@@ -33,14 +37,12 @@ public class UserPhoneServiceImpl extends ServiceImpl<UserPhoneMapper,UserPhone>
         }
 
         //验证手机号唯一
-        QueryWrapper<UserPhone> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("phone",phoneTake.getPhone());
-        UserPhone phone = this.getOne(queryWrapper);
+        UserPhone phone = userPhoneMapper.selectByPhoneOne(phoneTake.getPhone());
         if (phone !=null){
             throw new CommonException(ResultCode.RE_PHONE);
         }
         //保存手机号
-        this.save(new UserPhone(phoneTake.getUserName(),phoneTake.getPhone()));
+        userPhoneMapper.insertPhone(phoneTake.getUserName(),phoneTake.getPhone());
 
     }
 

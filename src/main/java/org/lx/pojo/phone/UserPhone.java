@@ -1,4 +1,4 @@
-package org.lx.pojo;
+package org.lx.pojo.phone;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
